@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='loginstyle.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>- Login -</h1>
+
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit" value="Login">
+        </form>
+
+        <a href="{{ url_for('registerpage') }}">Sign Up!</a>
+    </div>
+</body>
+</html>

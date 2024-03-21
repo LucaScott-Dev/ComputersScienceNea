@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.taskbar {
+    background-color: #68b6ef;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+#maintitle {
+    margin: 0;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.mainboxes {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 80px; /* Adjusted margin */
+}
+
+.calendarbox {
+    height: 700px; /* Adjusted height */
+    background-color: #68b6ef;
+    border: 0px solid black;
+    box-sizing: border-box;
+    border-radius: 10px; /* Adjust border-radius for desired curve */
+    width: 65%; /* Adjusted width for the left box */
+}
+
+.eventaddbox {
+    height: 700px; /* Adjusted height */
+    background-color: #68b6ef;
+    border: 0px solid black;
+    box-sizing: border-box;
+    border-radius: 10px; /* Adjust border-radius for desired curve */
+    width: 25%; /* Adjusted width for the right box */
+}
