@@ -1,10 +1,11 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
+from weather import main as get_weather
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -58,10 +59,16 @@ def loginpage():
                 return redirect(url_for('eventplannerpage'))
     return render_template('index.html', form=form)
 
-@app.route('/eventplanner', methods=['GET','POST'])
+@app.route('/eventplanner', methods=['GET', 'POST'])
 @login_required
 def eventplannerpage():
-    return render_template('eventplanner.html')
+    data = None
+    if request.method == 'POST':
+        city = request.form['city-Name']
+        country = request.form['country-Name']
+        data = get_weather(city, country)
+    return render_template('eventplanner.html', data=data)
+
 
 @app.route('/register', methods=['GET','POST'])
 def registerpage():

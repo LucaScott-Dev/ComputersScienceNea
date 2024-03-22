@@ -20,6 +20,20 @@
     </div>
     <div class="weather-Box">
         <h2 class="weather-title"> Weather</h2>
+        <form action="/eventplanner" method="post">
+            <input type="text" id="city-Name" name="city-Name">
+            <input type="text" id="counry-Name" name="country-Name">
+            <button>Find</button>
+        </form>
+
+        <div class="weather-data-container">
+            {% if data %}
+            <p class="weather-description">{{ data.main }}: {{ data.description }}</p>
+            <p class="temperature">{{ data.temperature }}</p>
+            <img src="https://openweathermap.org/img/wn/{{data.icon}}@2x.png" alt="Weather Icon">
+            {% endif %}
+        </div>
+        
     </div>
 </body>
 </html>

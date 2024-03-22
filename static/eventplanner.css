@@ -83,3 +83,83 @@ body {
     font-family: Arial, sans-serif;
     font-weight: bold;
 }
+
+/* Additional Styles for Weather Box */
+
+.weather-Box form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.weather-Box input[type="text"],
+.weather-Box button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.weather-Box input[type="text"] {
+    width: 150px; /* Adjust width as needed */
+}
+
+.weather-Box button {
+    background-color: #fff; /* Adjust background color */
+    color: #68b6ef; /* Adjust text color */
+    cursor: pointer;
+}
+
+.weather-Box button:hover {
+    background-color: #68b6ef; /* Adjust hover background color */
+    color: #fff; /* Adjust hover text color */
+}
+
+.weather-data {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.weather-data img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Adjustments for responsive design */
+
+@media (max-width: 768px) {
+    .weather-Box {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .weather-Box form {
+        flex-direction: column; /* Stack form elements vertically on smaller screens */
+    }
+
+    .weather-Box input[type="text"] {
+        width: 100%; /* Set input fields to full width on smaller screens */
+    }
+}
+
+.weather-data-container {
+    text-align: center; /* Center align the content */
+    margin-top: 20px; /* Adjust margin as needed */
+    font-weight: bold;
+}
+
+.weather-data-container p {
+    margin: 5px; /* Add margin between paragraphs */
+    font-family: Arial, sans-serif; /* Specify font family */
+    font-size: 16px; /* Specify font size */
+    color: white; /* Set text color to white */
+}
+
+.temperature {
+    margin-top: 5px; /* Add margin to separate temperature from description */
+}
+
+
+
