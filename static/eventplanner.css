@@ -22,26 +22,64 @@ body {
     font-weight: bold;
 }
 
-.mainboxes {
+.main-Boxes {
     display: flex;
     justify-content: space-around;
     margin-top: 80px; /* Adjusted margin */
 }
 
-.calendarbox {
-    height: 700px; /* Adjusted height */
+.calendar-Box {
+    height: 550px; /* Adjusted height */
     background-color: #68b6ef;
     border: 0px solid black;
     box-sizing: border-box;
     border-radius: 10px; /* Adjust border-radius for desired curve */
-    width: 65%; /* Adjusted width for the left box */
+    width: 67%; /* Adjusted width for the left box */
 }
 
-.eventaddbox {
-    height: 700px; /* Adjusted height */
+.calendar-title {
+    color: white;
+    text-align: center; /* Center align the title */
+    margin-top: 20px; /* Adjust margin as needed */
+    margin: 10, top;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.eventadd-Box {
+    height: 550px; /* Adjusted height */
     background-color: #68b6ef;
     border: 0px solid black;
     box-sizing: border-box;
     border-radius: 10px; /* Adjust border-radius for desired curve */
     width: 25%; /* Adjusted width for the right box */
+}
+
+.event-title {
+    color: white;
+    text-align: center; /* Center align the title */
+    margin-top: 20px; /* Adjust margin as needed */
+    margin: 10, top;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.weather-Box {
+    background-color: #68b6ef; /* Adjust background color */
+    height: 250px; /* Set the height as desired */
+    width: calc(65% + 31%); /* Set width to match the total width of the other boxes */
+    margin: 20px auto; /* Add margin to center the box and create space around it */
+    border-radius: 10px;
+}
+
+.weather-title {
+    color: white;
+    text-align: center; /* Center align the title */
+    margin-top: 20px; /* Adjust margin as needed */
+    margin: 20, top;
+    user-select: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
 }
