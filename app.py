@@ -14,6 +14,15 @@ app.config['SECRET_KEY'] = 'thisisasecretkey'
 db = SQLAlchemy(app)
 app.app_context().push()
 
+events = [
+    {
+        'title' : 'test',
+        'start' : '2024-03-27',
+        'end' : '2024-03-28',
+        'location' : 'nowhere'
+    }
+]
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
@@ -67,7 +76,21 @@ def eventplannerpage():
         city = request.form['city-Name']
         country = request.form['country-Name']
         data = get_weather(city, country)
-    return render_template('eventplanner.html', data=data)
+    elif request.method == 'POST':  # Change this line
+        title = request.form['title']
+        start = request.form['start']
+        end = request.form['end']
+        location = request.form['location']
+        if end == '':
+            end = start
+        events.append({
+            'title': title,
+            'start': start,
+            'end': end,
+            'location': location
+        })
+    return render_template('eventplanner.html', data=data, events=events)
+
 
 
 @app.route('/register', methods=['GET','POST'])

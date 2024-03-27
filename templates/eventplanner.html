@@ -5,17 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventPlanner</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='eventplanner.css') }}">
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          events : [
+          {% for event in events %}
+          {
+                title : '{{event.title}}',
+                start : '{{event.start}}',
+                end : '{{event.endDate}}',
+                location : '{{event.location}}',
+          },
+          {% endfor %}
+          ],
+        });
+        calendar.render();
+      });
+
+    </script>
 </head>
 <body>
     <header class="taskbar">
         <h1 id="maintitle">Luca's Event Planner</h1>
     </header>
     <div class="main-Boxes">
-        <div class="calendar-Box">
+        <div class="calendar-Box" id="calendar">
             <h1 class="calendar-title">Calendar</h1>
         </div>
         <div class="eventadd-Box">
             <h1 class="event-title">Event Add</h1>
+            <form action="/eventplanner" method="POST>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Event Title</label>
+                    <input type="text" class="form-control" name="title" id="title">
+                </div>
+                <div class="mb-3">
+                    <label for="start" class="form-label">Start Date</label>
+                    <input type="text" class="form-control" name="start" id="start">
+                </div>
+                <div class="mb-3">
+                    <label for="end" class="form-label">End Date</label>
+                    <input type="text" class="form-control" name="end" id="end">
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Event Location</label>
+                    <input type="text" class="form-control" name="location" id="location">
+                </div>
+                <button type="submit" class="btn btn-outline-dark">Submit</button>
+            </form>
         </div>
     </div>
     <div class="weather-Box">
