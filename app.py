@@ -1,10 +1,11 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
+from weather import main as get_weather
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -12,6 +13,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SECRET_KEY'] = 'thisisasecretkey'
 db = SQLAlchemy(app)
 app.app_context().push()
+
+events = [
+    {
+        'title' : '',
+        'start' : '',
+        'end' : '',
+        'location' : 'nowhere'
+    }
+]
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -58,10 +68,26 @@ def loginpage():
                 return redirect(url_for('eventplannerpage'))
     return render_template('index.html', form=form)
 
-@app.route('/eventplanner', methods=['GET','POST'])
+@app.route('/eventplanner', methods=['GET', 'POST'])
 @login_required
 def eventplannerpage():
-    return render_template('eventplanner.html')
+    if request.method == 'POST':
+        title = request.form['title']
+        start = request.form['start']
+        end = request.form['end']
+        location = request.form['location']
+        if end == '':
+            end=start
+        events.append({
+            'title': title,
+            'start': start,
+            'end': end,
+            'location': location
+        },
+        )
+    return render_template('eventplanner.html', events=events)
+
+
 
 @app.route('/register', methods=['GET','POST'])
 def registerpage():
