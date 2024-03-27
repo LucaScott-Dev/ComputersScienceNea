@@ -71,17 +71,20 @@ def loginpage():
 @app.route('/eventplanner', methods=['GET', 'POST'])
 @login_required
 def eventplannerpage():
-    if request.method == 'POST':  # Change this line
+    if request.method == 'POST':
         title = request.form['title']
         start = request.form['start']
         end = request.form['end']
         location = request.form['location']
+        if end == '':
+            end=start
         events.append({
             'title': title,
             'start': start,
             'end': end,
             'location': location
-        })
+        },
+        )
     return render_template('eventplanner.html', events=events)
 
 
