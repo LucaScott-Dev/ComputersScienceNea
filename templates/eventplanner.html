@@ -30,11 +30,10 @@
 </head>
 <body>
     <header class="taskbar">
-        <h1 id="maintitle">Luca's Event Planner</h1>
+        <h1 id="maintitle">Event Planner</h1>
     </header>
     <div class="main-Boxes">
         <div class="calendar-Box" id="calendar">
-            <h1 class="calendar-title">Calendar</h1>
         </div>
         <div class="eventadd-Box">
             <h1 class="event-title">Event Add</h1>
@@ -45,12 +44,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="start" class="form-label">Start Date</label>
-                    <input type="text" class="form-control" name="start" id="start">
+                    <input type="date" class="form-control" name="start" id="start">
                 </div>
                 <div class="mb-3">
                     <label for="end" class="form-label">End Date</label>
-                    <input type="text" class="form-control" name="end" id="end">
-                </div>
+                    <input type="date" class="form-control" name="end" id="end">
+                </div>                
                 <div class="mb-3">
                     <label for="location" class="form-label">Event Location</label>
                     <input type="text" class="form-control" name="location" id="location">
@@ -58,23 +57,6 @@
                 <button type="submit" class="btn btn-outline-dark">Submit</button>
             </form>
         </div>
-    </div>
-    <div class="weather-Box">
-        <h2 class="weather-title"> Weather</h2>
-        <form action="/eventplanner" method="post">
-            <input type="text" id="city-Name" name="city-Name">
-            <input type="text" id="counry-Name" name="country-Name">
-            <button>Find</button>
-        </form>
-
-        <div class="weather-data-container">
-            {% if data %}
-            <p class="weather-description">{{ data.main }}: {{ data.description }}</p>
-            <p class="temperature">{{ data.temperature }}</p>
-            <img src="https://openweathermap.org/img/wn/{{data.icon}}@2x.png" alt="Weather Icon">
-            {% endif %}
-        </div>
-        
     </div>
 </body>
 </html>

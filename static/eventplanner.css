@@ -1,165 +1,79 @@
+/* eventplanner.css */
+
+/* General Styles */
 body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
 .taskbar {
-    background-color: #68b6ef;
-    color: white;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
     text-align: center;
-    padding: 15px 0;
-    margin: 0;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-}
-
-#maintitle {
-    margin: 0;
-    user-select: none;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
 }
 
 .main-Boxes {
     display: flex;
     justify-content: space-around;
-    margin-top: 80px; /* Adjusted margin */
+    margin-top: 20px;
 }
 
+/* Calendar Styles */
 .calendar-Box {
-    height: 550px; /* Adjusted height */
-    background-color: #68b6ef;
-    border: 0px solid black;
-    box-sizing: border-box;
-    border-radius: 10px; /* Adjust border-radius for desired curve */
-    width: 67%; /* Adjusted width for the left box */
+    width: 60%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .calendar-title {
-    color: white;
-    text-align: center; /* Center align the title */
-    margin-top: 20px; /* Adjust margin as needed */
-    margin: 10, top;
-    user-select: none;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
+    margin-top: 0;
+    color: #333;
 }
 
+/* Event Add Styles */
 .eventadd-Box {
-    height: 550px; /* Adjusted height */
-    background-color: #68b6ef;
-    border: 0px solid black;
-    box-sizing: border-box;
-    border-radius: 10px; /* Adjust border-radius for desired curve */
-    width: 25%; /* Adjusted width for the right box */
+    width: 35%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .event-title {
-    color: white;
-    text-align: center; /* Center align the title */
-    margin-top: 20px; /* Adjust margin as needed */
-    margin: 10, top;
-    user-select: none;
-    font-family: Arial, sans-serif;
+    margin-top: 0;
+    color: #333;
+}
+
+.event-form .form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
     font-weight: bold;
+    display: block;
 }
 
-.weather-Box {
-    background-color: #68b6ef; /* Adjust background color */
-    height: 250px; /* Set the height as desired */
-    width: calc(65% + 31%); /* Set width to match the total width of the other boxes */
-    margin: 20px auto; /* Add margin to center the box and create space around it */
-    border-radius: 10px;
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
-.weather-title {
-    color: white;
-    text-align: center; /* Center align the title */
-    margin-top: 20px; /* Adjust margin as needed */
-    margin: 20, top;
-    user-select: none;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-}
-
-/* Additional Styles for Weather Box */
-
-.weather-Box form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px; /* Adjust margin as needed */
-}
-
-.weather-Box input[type="text"],
-.weather-Box button {
-    padding: 10px;
+.btn {
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    margin: 5px;
-}
-
-.weather-Box input[type="text"] {
-    width: 150px; /* Adjust width as needed */
-}
-
-.weather-Box button {
-    background-color: #fff; /* Adjust background color */
-    color: #68b6ef; /* Adjust text color */
     cursor: pointer;
+    background-color: #333;
+    color: #fff;
 }
 
-.weather-Box button:hover {
-    background-color: #68b6ef; /* Adjust hover background color */
-    color: #fff; /* Adjust hover text color */
+.btn:hover {
+    background-color: #555;
 }
-
-.weather-data {
-    color: white;
-    text-align: center;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-}
-
-.weather-data img {
-    display: block;
-    margin: 0 auto;
-}
-
-/* Adjustments for responsive design */
-
-@media (max-width: 768px) {
-    .weather-Box {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-
-    .weather-Box form {
-        flex-direction: column; /* Stack form elements vertically on smaller screens */
-    }
-
-    .weather-Box input[type="text"] {
-        width: 100%; /* Set input fields to full width on smaller screens */
-    }
-}
-
-.weather-data-container {
-    text-align: center; /* Center align the content */
-    margin-top: 20px; /* Adjust margin as needed */
-    font-weight: bold;
-}
-
-.weather-data-container p {
-    margin: 5px; /* Add margin between paragraphs */
-    font-family: Arial, sans-serif; /* Specify font family */
-    font-size: 16px; /* Specify font size */
-    color: white; /* Set text color to white */
-}
-
-.temperature {
-    margin-top: 5px; /* Add margin to separate temperature from description */
-}
-
-
-

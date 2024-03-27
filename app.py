@@ -16,9 +16,9 @@ app.app_context().push()
 
 events = [
     {
-        'title' : 'test',
-        'start' : '2024-03-27',
-        'end' : '2024-03-28',
+        'title' : '',
+        'start' : '',
+        'end' : '',
         'location' : 'nowhere'
     }
 ]
@@ -71,25 +71,18 @@ def loginpage():
 @app.route('/eventplanner', methods=['GET', 'POST'])
 @login_required
 def eventplannerpage():
-    data = None
-    if request.method == 'POST':
-        city = request.form['city-Name']
-        country = request.form['country-Name']
-        data = get_weather(city, country)
-    elif request.method == 'POST':  # Change this line
+    if request.method == 'POST':  # Change this line
         title = request.form['title']
         start = request.form['start']
         end = request.form['end']
         location = request.form['location']
-        if end == '':
-            end = start
         events.append({
             'title': title,
             'start': start,
             'end': end,
             'location': location
         })
-    return render_template('eventplanner.html', data=data, events=events)
+    return render_template('eventplanner.html', events=events)
 
 
 
